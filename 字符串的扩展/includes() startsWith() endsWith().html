@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+     *   在传统的js中只有indexof来判断一个字符是否存在于字符串中，
+     *   在ES6里有三种方法来判断，分别是
+     *   1)includes()
+     *   2)startsWith()
+     *   3)endsWith()
+     * */
+
+    var str = 'Hello World!';
+    console.log(str.includes('o'));//true
+    console.log(str.startsWith('H'));//true
+    console.log(str.endsWith('!'));//true
+    //此外，这三个参数都支持第二个参数，也即开始搜索的位置
+    console.log(str.includes('o',10));//false
+    console.log(str.startsWith('H',10));//false
+    //与includes()和startsWith()方法不同的是，endsWith()方法是表示从位置之前的字符来查询
+    console.log(str.endsWith('!',10));//false
+    console.log(str.endsWith('!',13));//true
+</script>
+</html>

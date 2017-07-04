@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //与g类似，都是全局匹配
+    var s = 'aaa_aa_a';
+
+    if(true){
+        let r1 = /a+/g;
+        let r2 = /a+/y;
+
+        console.log(r1.exec(s));//["aaa"]
+        console.log(r2.exec(s));//["aaa"]
+
+        console.log(r1.exec(s));//["aa"]
+        console.log(r2.exec(s));//null,zhi
+    }
+
+    if(true){
+
+    }
+
+
+
+</script>
+</html>

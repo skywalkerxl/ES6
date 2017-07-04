@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //和数组一样，解构也可以用于嵌套结构的对象
+    var obj = {
+        p : [
+                "Hello",
+                { y: "World" }
+        ]
+    };
+
+    var { p: [x, {y}]} = obj;
+    console.log(x,y);
+
+    function add([m, n]){
+        return m+n;
+    }
+    //函数add中传入的其实并不是一个数组而是通过结构得到的变量m和n
+</script>
+</html>

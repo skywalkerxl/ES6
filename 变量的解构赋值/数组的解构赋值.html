@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //在ES5中声明的方式
+    var a = 1;
+    var b = 2;
+    //在ES6中声明的方式
+    var [a,b] = [1,2];
+    console.log(a,b);
+    //类似的解构方式还有
+    let [foo,[[bar],baz]] = [1,[[2],3]];
+    console.log(foo,bar,baz);
+    //当然解构出错也会提示"undefined"
+    let [c] = [];
+    console.log(c); //undefined
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //解构赋值不仅可以用于数组，也可以用于对象
+    let { foo, bar } = { foo: 'aaa', bar: 'bbb'};
+    console.log(foo,bar); //aaa bbb
+    //如果变量名与属性名不一致，那么可以写成这样
+    let { xxx: yyy } = { xxx: 'ccc', zzz: 'ddd'};
+    console.log(yyy);//ccc
+    //这说明实际上的，实际上对象的解构赋值是以下形式的简写
+    let { foo: foo, bar: bar };
+</script>
+</html>

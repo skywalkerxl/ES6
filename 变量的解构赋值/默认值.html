@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //解构赋值允许指定默认值
+    let [foo = true] = [true];
+    console.log(foo);//true
+
+    let [x, y = 'b'] = ['a'];
+    console.log(x,y);//a b
+
+    let [m, n = 'zero'] = ['a',undefined];
+    console.log(m,n);//a zero
+
+    //默认值可以使用解构变量进行申明，前提是该解构变量已经声明
+    let [i = 1, j = i] = [];
+    console.log(i,j);//1 1
+    let [v = w, w = 1] = [];
+    console.log(v,w); //Uncaught ReferenceError:w is not undefined
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+<script src="../jquery-1.11.1.min.js"></script>
+<script>
+    var basket = {};
+    basket.count = 5;
+    basket.onSale = 3;
+    //传统的JavaScript通常是这样写的
+    $('result').append(
+            'There are <b>' + basket.count + '</b>'
+            + 'items in your basket, '
+            + '<em>' + basket.onSale + '</em> are on sale!'
+    )
+    //上面这种写法相当繁琐且不方便，在ES6中引入了"模板字符串"来解决这个问题
+    //所谓"模板字符串"即为增强版的字符串，用(`)反引号标识
+    $('result').append(`
+        There are <b> ${ basket.count } </b> items in your basket, <em> ${ basket.onSale } </em> are on sale!
+    `)
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div"></div>
+
+</body>
+<script>
+    var div = document.getElementById('div');
+    
+    var template = `
+        <ul>
+            <% for(var i=0; i < data.supplies.length; i++){%>
+               <li><%= data.supplies[i] %></li>
+            <% } %>
+        </ul>
+    `;
+    //反引号标识的模板字符串
+    //该模板使用<%...%>放置JavaScript代码，使用<%=...%>输出JavaScript表达式
+
+    //那么该如何编译这个模板字符串呢？
+    //可以声明一个模板编译函数compile来编译这个模板字符串
+    function compile(){
+        var evalRxpr = /<%=(.+?)%>/g; //?表示匹配一次或多次，也就是说前一项可选
+        var expr = /<%([\s\S]+?)%>/g; //
+
+        template = template
+                .replace(evalRxpr, '`); \n echo( $1 ); \n echo(`')
+                .replace(expr, '`); \n $1 \n echo(`');
+
+        template = 'echo(`' + template + '`);';
+
+        var script = `
+            (function parse(data){
+                var output = "";
+
+                function echo(html){
+                    output += html;
+                }
+
+                ${ template }
+
+                return output;
+            })`;
+        return script;
+    }
+    //compile函数的用法如下
+    var parse = eval(compile(template));
+    div.innerHTML = parse({ supplies: [ "broom", "mop", "cleaner" ]});
+</script>
+</html>
